@@ -10,6 +10,10 @@ const bodyRef = document.querySelector('body');
 const handler = () => {
   const a = randomIntegerFromInterval(1, 6);
   bodyRef.style.backgroundColor = colors[a-1];
+  if(buttonRef[0].hasAttribute('disabled')){
+    clearInterval(intervalId);
+}
+
 };
 
 
