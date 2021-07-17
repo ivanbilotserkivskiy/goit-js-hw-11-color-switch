@@ -7,27 +7,22 @@ const randomIntegerFromInterval = (min, max) => {
   };
 
 const bodyRef = document.querySelector('body');
-const handler = () => {
-  const a = randomIntegerFromInterval(1, 6);
-  bodyRef.style.backgroundColor = colors[a-1];
-  if(buttonRef[0].hasAttribute('disabled')){
-    clearInterval(intervalId);
-}
 
-};
-
-
-
-buttonRef[0].addEventListener('click', () => {
-    const intervalId = setInterval(handler, 1000);
+const startButton = buttonRef[0].addEventListener('click', () => {
     buttonRef[0].setAttribute('disabled', 'true')
-    if(buttonRef[0].hasAttribute('disabled')=== false){
-        clearInterval(intervalId);
-    }
+    const intervalId = setInterval(() => {
 
-});
-buttonRef[1].addEventListener('click', () => {
-    buttonRef[0].removeAttribute('disabled')
-});
+      const a = randomIntegerFromInterval(1, 6);
+      bodyRef.style.backgroundColor = colors[a-1];
+      buttonRef[1].addEventListener('click', () => {
+
+        buttonRef[0].removeAttribute('disabled')
+        clearInterval(intervalId)});
+      }, 1000)
+    });
+ 
+    
+
+
 
 
